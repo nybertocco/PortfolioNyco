@@ -1,0 +1,502 @@
+.content-personal {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bio-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bio-section h1 {
+    font-weight: 600;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  
+  .bio-section p {
+    line-height: 1.6;
+    color: #aaa;
+  }
+  
+  .skills-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+  
+  .skills-section h2 {
+    text-align: center;
+    font-weight: 500;
+    color: rgb(92, 121, 184);
+  }
+  
+  .skills ol {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .skills p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgb(92, 121, 184);
+    background: rgb(47, 54, 68);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  }
+  
+  .skills p:hover {
+    background: rgb(48, 61, 90);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  }
+  
+  .skills img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .certifications-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    margin-top: 10rem;
+  }
+  
+  .certifications-section h2 {
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: rgb(92, 121, 184);
+  }
+  
+  .register-cert {
+    padding: 2rem;
+    background: rgb(34, 34, 34);
+    border-radius: 15px;
+    border: 1px solid rgb(34, 34, 34);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .register-cert:hover {
+    background: rgb(37, 42, 53);
+    transform: translateY(-3px);
+  }
+  
+  .register-cert h3 {
+    margin-top: 1rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+  }
+  
+  .register-cert p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #aaa;
+  }
+  
+  .register-cert span {
+    font-weight: 500;
+    color: rgb(92, 121, 184);
+  }
+  
+  .h2-cert {
+    font-weight: 500;
+    color: rgb(92, 121, 184);
+    text-align: center;
+    border: 1px solid rgb(34, 34, 34);
+    border-radius: 15px 15px 0 0;
+    background: rgb(34, 34, 34);
+  }
+  
+  .cert-views {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem;
+    border: 1px solid rgb(34, 34, 34);
+    border-radius: 0 0 15px 15px;
+    background: rgb(34, 34, 34);
+    margin-bottom: 10rem;
+  }
+  
+  .cert {
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    background-color: rgb(28, 28, 28);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cert:hover {
+    background: rgb(37, 42, 53);
+    transform: translateY(-3px);
+  }
+  
+  .cert img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+  }
+  
+  .cert h3 {
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+  }
+  
+  .cert p {
+    color: #aaa;
+    font-weight: 400;
+  }
+  
+  .cert span {
+    font-weight: 500;
+    color: rgb(92, 121, 184);
+  }
+
+
+  @media (max-width: 480px) {
+    .content-personal {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .container {
+      height: auto;
+      width: 100%;
+    }
+  
+    .bio-section {
+      height: auto;
+      width: 90%;
+      margin-top: 15rem;
+    }
+  
+    .bio-section h1 {
+      font-size: 3rem;
+      width: 90%;
+      margin-bottom: 5rem;
+    }
+  
+    .bio-section p {
+      font-size: 1.4rem;
+      width: 90%;
+    }
+  
+    .skills-section {
+      width: 90%;
+      height: auto;
+    }
+  
+    .skills-section h2 {
+      font-size: 3rem;
+    }
+  
+    .skills p {
+      font-size: 1.5rem;
+    }
+  
+    .certifications-section {
+      width: 90%;
+      height: auto;
+    }
+  
+    .certifications-section h2 {
+      font-size: 2.5rem;
+    }
+  
+    .register-cert {
+      height: auto;
+      padding: 4rem;
+    }
+  
+    .register-cert h3 {
+      font-size: 1.5rem;
+    }
+  
+    .register-cert p {
+      font-size: 1.4rem;
+    }
+  
+    .register-cert span {
+      font-size: 1.4rem;
+    }
+  
+    .h2-cert {
+      font-size: 2.4rem;
+      width: 90%;
+      margin-top: 10rem;
+      margin-bottom: 1rem;
+      padding: 5rem;
+    }
+  
+    .cert-views {
+      width: 90%;
+    }
+  
+    .cert {
+      width: 100%;
+      height: 30rem;
+    }
+
+    .info-cert {
+      justify-content: center;
+      padding: 1rem;
+    }
+  
+    .cert img {
+      height: 20rem;
+    }
+  
+    .cert h3 {
+      font-size: 1.4rem;
+    }
+  
+    .cert p {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .cert span {
+      font-size: 1.4rem;
+    }
+  }
+
+
+  @media (min-width: 481px) and (max-width: 1199px) {
+    .content-personal {
+      width: 100%;
+      padding: 2rem;
+    }
+  
+    .container {
+      height: auto;
+      width: 100%;
+    }
+  
+    .bio-section {
+      height: auto;
+      width: 80%;
+      margin-top: 15rem;
+    }
+  
+    .bio-section h1 {
+      font-size: 3.5rem;
+      width: 80%;
+      margin-bottom: 4rem;
+    }
+  
+    .bio-section p {
+      font-size: 1.6rem;
+      width: 80%;
+    }
+  
+    .skills-section {
+      width: 80%;
+      height: auto;
+    }
+  
+    .skills-section h2 {
+      font-size: 2.5rem;
+    }
+  
+    .skills p {
+      font-size: 1.4rem;
+    }
+  
+    .certifications-section {
+      width: 80%;
+      height: auto;
+    }
+  
+    .certifications-section h2 {
+      font-size: 2.5rem;
+    }
+  
+    .register-cert {
+      height: auto;
+      padding: 3rem;
+    }
+  
+    .register-cert h3 {
+      font-size: 1.6rem;
+    }
+  
+    .register-cert p {
+      font-size: 1.4rem;
+    }
+  
+    .register-cert span {
+      font-size: 1.4rem;
+    }
+  
+    .h2-cert {
+      font-size: 2.5rem;
+      width: 80%;
+      margin-top: 15rem;
+      padding: 4rem;
+    }
+  
+    .cert-views {
+      width: 80%;
+    }
+  
+    .cert {
+      width: 100%;
+      height: auto;
+      min-height: 30rem;
+    }
+  
+    .cert img {
+      width: 100%; 
+      height: auto; 
+      min-height: 15rem; 
+      max-height: 20rem; 
+      object-fit: cover; 
+      border-radius: 10px 10px 0 0;
+    }
+
+    .info-cert {
+      justify-content: center;
+      padding: 1rem;
+    }
+  
+    .cert h3 {
+      font-size: 1.4rem;
+    }
+  
+    .cert p {
+      font-size: 1.4rem;
+    }
+  
+    .cert span {
+      font-size: 1.4rem;
+    }
+  }
+
+
+  @media (min-width: 1200px) {
+    .content-personal {
+      width: 100%;
+      padding: 2rem;
+    }
+  
+    .container {
+      height: 40rem;
+      width: 100%;
+    }
+  
+    .bio-section {
+      height: 40rem;
+      width: 90%;
+      margin-top: 15rem;
+    }
+  
+    .bio-section h1 {
+      font-size: 4rem;
+      width: 30rem;
+      margin-bottom: 5rem;
+    }
+  
+    .bio-section p {
+      font-size: 1.8rem;
+      width: 90rem;
+    }
+  
+    .skills-section {
+      width: 90rem;
+      height: 20rem;
+    }
+  
+    .skills-section h2 {
+      font-size: 3rem;
+    }
+  
+    .skills p {
+      font-size: 1.5rem;
+    }
+  
+    .certifications-section {
+      width: 80rem;
+      height: 60rem;
+    }
+  
+    .certifications-section h2 {
+      font-size: 3rem;
+    }
+  
+    .register-cert {
+      height: 25rem;
+      padding: 2rem;
+    }
+  
+    .register-cert h3 {
+      font-size: 2rem;
+    }
+  
+    .register-cert p {
+      font-size: 1.6rem;
+    }
+  
+    .register-cert span {
+      font-size: 1.4rem;
+    }
+  
+    .h2-cert {
+      font-size: 3rem;
+      width: 80rem;
+      margin-top: 10rem;
+      padding: 5rem;
+    }
+  
+    .cert-views {
+      width: 80rem;
+    }
+  
+    .cert {
+      width: 40%;
+      height: 36rem;
+    }
+
+    .info-cert {
+      justify-content: center;
+      padding: 1rem;
+    }
+  
+    .cert img {
+      height: 24rem;
+    }
+  
+    .cert h3 {
+      font-size: 1.6rem;
+    }
+  
+    .cert p {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .cert span {
+      font-size: 1.4rem;
+    }
+  }

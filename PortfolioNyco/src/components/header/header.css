@@ -1,0 +1,225 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgb(18, 18, 18);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .menu-icon {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .menu-list {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .menu-list ol {
+    list-style: none;
+    display: flex;
+    gap: 8rem;
+  }
+  
+  .menu-list ol li {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .menu-list ol li:hover {
+    color: rgb(92, 121, 184);
+  }
+  
+  @media (max-width: 480px) {
+    .navigation {
+      height: 8rem;
+      justify-content: center;
+      gap: 6rem;
+    }
+    
+    .menu-icon {
+      display: block;
+      position: absolute;
+      right: 20px;
+      font-size: 2.5rem;
+      color: rgb(92, 121, 184);
+    }
+  
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 55px;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgb(18, 18, 18);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  
+    .menu-list.open {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(24, 24, 24);
+    }
+  
+    .menu-list ol {
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      font-size: 2.8rem;
+      margin-bottom: 20rem;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 1199px) {
+    .navigation {
+        height: 8rem;
+        justify-content: center;
+        gap: 6rem;
+      }
+    
+      .menu-list {
+        gap: 8rem;
+        margin-top: 1rem;
+      }
+
+      .menu-list ol {
+        gap: 5rem;
+      }
+    
+      .menu-list p {
+        font-size: 1.8rem;
+        line-height: 1.6rem;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.1s ease-in-out;
+        color: rgb(255, 255, 255);
+      }
+    
+      .menu-list p::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1rem;
+        width: 0;
+        height: 2px;
+        background-color: rgb(92, 121, 184);
+        transition: width 0.2s ease-in-out;
+      }
+    
+      .menu-list p:hover {
+        color: rgb(92, 121, 184);
+      }
+    
+      .menu-list p:hover::after {
+        width: 100%;
+      }
+      .navigation p {
+          font-size: 1.8rem;
+          line-height: 1.6rem;
+          position: relative;
+          text-decoration: none;
+          transition: color 0.1s ease-in-out;
+          color: rgb(255, 255, 255);
+      }
+      
+      .navigation p::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -1rem;
+          width: 0;
+          height: 2px;
+          background-color: rgb(92, 121, 184);
+          transition: width 0.2s ease-in-out;
+      }
+      
+      .navigation p:hover {
+          color: rgb(92, 121, 184); 
+      }
+      
+      .navigation p:hover::after {
+          width: 100%; 
+      }
+  }
+  
+  @media (min-width: 1200px) {
+    .navigation {
+      height: 8rem;
+      justify-content: center;
+      gap: 6rem;
+    }
+  
+    .menu-list {
+      gap: 8rem;
+      margin-top: 1rem;
+    }
+  
+    .menu-list p {
+      font-size: 1.8rem;
+      line-height: 1.6rem;
+      position: relative;
+      text-decoration: none;
+      transition: color 0.1s ease-in-out;
+      color: rgb(255, 255, 255);
+    }
+  
+    .menu-list p::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1rem;
+      width: 0;
+      height: 2px;
+      background-color: rgb(92, 121, 184);
+      transition: width 0.2s ease-in-out;
+    }
+  
+    .menu-list p:hover {
+      color: rgb(92, 121, 184);
+    }
+  
+    .menu-list p:hover::after {
+      width: 100%;
+    }
+    .navigation p {
+        font-size: 1.8rem;
+        line-height: 1.6rem;
+        position: relative;
+        text-decoration: none;
+        transition: color 0.1s ease-in-out;
+        color: rgb(255, 255, 255);
+    }
+    
+    .navigation p::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1rem;
+        width: 0;
+        height: 2px;
+        background-color: rgb(92, 121, 184);
+        transition: width 0.2s ease-in-out;
+    }
+    
+    .navigation p:hover {
+        color: rgb(92, 121, 184); 
+    }
+    
+    .navigation p:hover::after {
+        width: 100%; 
+    }
+}
