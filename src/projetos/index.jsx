@@ -115,7 +115,7 @@ export default function Projetos() {
         </div>
 
         <div className="PortalNB">
-          <img src={CadastroLogin} alt="PortalNB" />
+          <img src={PortalNB} alt="PortalNB" />
 
           <section>
             <h3>PortalNB</h3>
