@@ -39,7 +39,8 @@
   .CatalogoHoteis,
   .MoviePB,
   .CadastroLogin,
-  .AgendaSemanal {
+  .AgendaSemanal, 
+  .PortalNB {
     display: flex;
     gap: 2rem;
   }
@@ -48,7 +49,8 @@
   .CatalogoHoteis button,
   .MoviePB button,
   .CadastroLogin button,
-  .AgendaSemanal button {
+  .AgendaSemanal button, 
+  .PortalNB button {
     margin-top: 2rem;
   }
 
@@ -100,7 +102,8 @@
     .CatalogoHoteis,
     .MoviePB,
     .CadastroLogin,
-    .AgendaSemanal {
+    .AgendaSemanal, 
+    .PortalNB {
       flex-direction: column;
       width: 80%;
     }
@@ -143,7 +146,8 @@
     .CatalogoHoteis,
     .MoviePB,
     .CadastroLogin,
-    .AgendaSemanal {
+    .AgendaSemanal, 
+    .PortalNB {
       flex-direction: row;
       align-items: center;
       width: 100%;

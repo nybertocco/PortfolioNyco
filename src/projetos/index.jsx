@@ -6,6 +6,7 @@ import AgendaSemanal from "../assets/AgendaSemanal.png";
 import CatalogoHoteis from "../assets/CatalogoHoteis.png";
 import MoviePB from "../assets/MoviePB.png";
 import CadastroLogin from "../assets/CadastroLogin.png";
+import PortalNB from "../assets/PortalNB.png";
 
 export default function Projetos() {
   return (
@@ -105,6 +106,25 @@ export default function Projetos() {
             </p>
             <a
               href="https://nybertocco.github.io/formtest/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Ver Projeto</button>
+            </a>
+          </section>
+        </div>
+
+        <div className="PortalNB">
+          <img src={CadastroLogin} alt="PortalNB" />
+
+          <section>
+            <h3>PortalNB</h3>
+            <p>
+              Portal de notícias do mundo todo, implementando API gnews e com
+              uma barra de pesquisa por palavras chave.
+            </p>
+            <a
+              href="https://news-page-1kyh-nybertoccos-projects.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
