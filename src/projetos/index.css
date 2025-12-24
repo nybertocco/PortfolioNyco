@@ -35,7 +35,7 @@
     border-radius: 10px;
   }
   
-  .DevLinks,
+  .NewDevLinks,
   .CatalogoHoteis,
   .MoviePB,
   .CadastroLogin,
@@ -45,7 +45,7 @@
     gap: 2rem;
   }
   
-  .DevLinks button,
+  .NewDevLinks button,
   .CatalogoHoteis button,
   .MoviePB button,
   .CadastroLogin button,
@@ -98,7 +98,7 @@
         max-width: 24rem;
     }
   
-    .DevLinks,
+    .NewDevLinks,
     .CatalogoHoteis,
     .MoviePB,
     .CadastroLogin,
@@ -142,7 +142,7 @@
       height: 15rem;
     }
   
-    .DevLinks,
+    .NewDevLinks,
     .CatalogoHoteis,
     .MoviePB,
     .CadastroLogin,
@@ -153,7 +153,7 @@
       width: 100%;
     }
   
-    .DevLinks button,
+    .NewDevLinks button,
     .AgendaSemanal button {
       margin-top: 4rem;
     }
@@ -192,7 +192,7 @@
       height: 22rem;
     }
   
-    .DevLinks button,
+    .NewDevLinks button,
     .AgendaSemanal button {
       margin-top: 6rem;
     }

@@ -1,7 +1,7 @@
 import "./index.css";
 import Header from "../components/header/Header.jsx";
 import Footer from "../components/footer/index.jsx";
-import DevLinks from "../assets/DevLinks.png";
+import NewDevLinks from "../assets/NewDevLinks.png";
 import AgendaSemanal from "../assets/AgendaSemanal.png";
 import CatalogoHoteis from "../assets/CatalogoHoteis.png";
 import MoviePB from "../assets/MoviePB.png";
@@ -18,18 +18,19 @@ export default function Projetos() {
       </div>
 
       <div className="projects">
-        <div className="DevLinks">
-          <img src={DevLinks} alt="Projeto DevLinks" />
+        <div className="NewDevLinks">
+          <img src={NewDevLinks} alt="Projeto New-DevLinks" />
 
           <section>
-            <h3>DevLinks</h3>
+            <h3>New-DevLinks</h3>
             <p>
-              Um mini portfólio que eu fiz no curso da RocketSeat, muito útil
-              para colocar links de projetos, redes sociais e portfólios.
+              Atualização do DevLinks, um mini portfólio que eu fiz no curso da
+              RocketSeat, muito útil para colocar links de projetos, redes
+              sociais e portfólios.
             </p>
 
             <a
-              href="https://nybertocco.github.io/minhasredes/"
+              href="https://new-dev-links.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
