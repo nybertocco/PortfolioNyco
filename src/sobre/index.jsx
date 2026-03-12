@@ -11,6 +11,10 @@ import discover from "../assets/discover.png";
 import htmlcss from "../assets/htmlcss.png";
 import backend from "../assets/backend.png";
 import javascript2 from "../assets/javascript.png";
+import dioNetflix from "../assets/dio-netflix.png";
+import dioScrum from "../assets/dio-scrum.png";
+import dioBootstrap from "../assets/dio-bootstrap.png";
+import senai from "../assets/senai.png";
 
 export default function Sobre() {
   return (
@@ -22,8 +26,8 @@ export default function Sobre() {
           <h1>Sobre Mim</h1>
           <p>
             Olá, me chamo Nycolas, sou desenvolvedor Front-End e comecei meu
-            primeiro curso de programação em 2023, da RocketSeat, no meu último ano do ensino
-            médio.
+            primeiro curso de programação em 2023, da RocketSeat, no meu último
+            ano do ensino médio.
             <br /> Em 2024 fiz um ano de graduação de Engenharia de Software no
             Instituo Infnet (EAD), e em 2025 migrei pra Ánalise e
             Desenvolvimento de Sistemas no Centro Universitário Facens.
@@ -117,6 +121,38 @@ export default function Sobre() {
             <h3>JavaScript</h3>
             <p>RocketSeat</p>
             <span>2024</span>
+          </div>
+        </div>
+        <div className="cert">
+          <img src={dioNetflix} alt="Certificado Dio" />
+          <div className="info-cert">
+            <h3>Recriando Interface Netflix</h3>
+            <p>Dio</p>
+            <span>2026</span>
+          </div>
+        </div>
+        <div className="cert">
+          <img src={dioBootstrap} alt="Certificado Dio" />
+          <div className="info-cert">
+            <h3>Construindo páginas com Bootstrap</h3>
+            <p>Dio</p>
+            <span>2026</span>
+          </div>
+        </div>
+        <div className="cert">
+          <img src={dioScrum} alt="Certificado Dio" />
+          <div className="info-cert">
+            <h3>Projetos ágeis com SCRUM</h3>
+            <p>Dio</p>
+            <span>2026</span>
+          </div>
+        </div>
+        <div className="cert">
+          <img src={senai} alt="Certificado Senai" />
+          <div className="info-cert">
+            <h3>Fluência - Fundamentos da IA</h3>
+            <p>Senai</p>
+            <span>2026</span>
           </div>
         </div>
       </div>
