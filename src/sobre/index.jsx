@@ -15,6 +15,7 @@ import dioNetflix from "../assets/dio-netflix.png";
 import dioScrum from "../assets/dio-scrum.png";
 import dioBootstrap from "../assets/dio-bootstrap.png";
 import senai from "../assets/senai.png";
+import senai2 from "../assets/senai2.png";
 
 export default function Sobre() {
   return (
@@ -148,9 +149,20 @@ export default function Sobre() {
           </div>
         </div>
         <div className="cert">
-          <img src={senai} alt="Certificado Senai" />
+          <img
+            src={senai2}
+            alt="Certificado Senai - Fluência - Fundamentos da IA"
+          />
           <div className="info-cert">
             <h3>Fluência - Fundamentos da IA</h3>
+            <p>Senai</p>
+            <span>2026</span>
+          </div>
+        </div>
+        <div className="cert">
+          <img src={senai2} alt="Certificado Senai - Ética na IA" />
+          <div className="info-cert">
+            <h3>Ética na IA</h3>
             <p>Senai</p>
             <span>2026</span>
           </div>
