@@ -40,7 +40,8 @@
   .MoviePB,
   .CadastroLogin,
   .AgendaSemanal, 
-  .PortalNB {
+  .PortalNB,
+  .NetflixClone {
     display: flex;
     gap: 2rem;
   }
@@ -50,7 +51,8 @@
   .MoviePB button,
   .CadastroLogin button,
   .AgendaSemanal button, 
-  .PortalNB button {
+  .PortalNB button,
+  .NetflixClone button {
     margin-top: 2rem;
   }
 
@@ -103,7 +105,8 @@
     .MoviePB,
     .CadastroLogin,
     .AgendaSemanal, 
-    .PortalNB {
+    .PortalNB,
+    .NetflixClone {
       flex-direction: column;
       width: 80%;
     }
@@ -147,7 +150,8 @@
     .MoviePB,
     .CadastroLogin,
     .AgendaSemanal, 
-    .PortalNB {
+    .PortalNB,
+    .NetflixClone {
       flex-direction: row;
       align-items: center;
       width: 100%;

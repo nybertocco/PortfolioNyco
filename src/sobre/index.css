@@ -121,24 +121,56 @@
     font-weight: 500;
     color: rgb(92, 121, 184);
     text-align: center;
-    border: 1px solid rgb(34, 34, 34);
+    border: none;
     border-radius: 15px 15px 0 0;
-    background: rgb(34, 34, 34);
   }
   
+  .cert-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 10rem;
+    border: none;
+    border-radius: 0 0 15px 15px;
+    padding: 1rem;
+  }
+
+  .cert-carousel-btn {
+    background: rgb(50, 50, 50);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .cert-carousel-btn:hover {
+    background: rgb(80, 80, 80);
+  }
+
   .cert-views {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    padding: 4rem;
-    border: 1px solid rgb(34, 34, 34);
-    border-radius: 0 0 15px 15px;
-    background: rgb(34, 34, 34);
-    margin-bottom: 10rem;
+    flex-direction: row;
+    overflow-x: hidden; /* esconde a scrollbar */
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    scrollbar-width: none; /* Firefox */
+    flex: 1;
   }
-  
+
+  .cert-views::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
   .cert {
+    flex: 0 0 auto;
+    width: 220px;
+    scroll-snap-align: start;
     border-radius: 0 0 10px 10px;
     text-align: center;
     background-color: rgb(28, 28, 28);
@@ -146,7 +178,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .cert:hover {
     background: rgb(37, 42, 53);
     transform: translateY(-3px);
@@ -248,13 +280,23 @@
       margin-bottom: 1rem;
       padding: 5rem;
     }
+
+    .cert-carousel-wrapper {
+      width: 85%;
+    }
+
+    .cert-carousel-btn {
+      width: 34px;
+      height: 34px;
+      font-size: 1.2rem;
+    }
   
     .cert-views {
-      width: 90%;
+      width: 100%;
     }
   
     .cert {
-      width: 100%;
+      width: 200px;
       height: 30rem;
     }
 
@@ -356,13 +398,17 @@
       margin-top: 15rem;
       padding: 4rem;
     }
-  
-    .cert-views {
+
+    .cert-carousel-wrapper {
       width: 80%;
     }
   
-    .cert {
+    .cert-views {
       width: 100%;
+    }
+  
+    .cert {
+      width: 220px;
       height: auto;
       min-height: 30rem;
     }
@@ -468,13 +514,17 @@
       margin-top: 10rem;
       padding: 5rem;
     }
-  
-    .cert-views {
+
+    .cert-carousel-wrapper {
       width: 80rem;
     }
   
+    .cert-views {
+      width: 100%;
+    }
+  
     .cert {
-      width: 40%;
+      width: 220px;
       height: 36rem;
     }
 

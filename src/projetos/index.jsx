@@ -7,6 +7,7 @@ import CatalogoHoteis from "../assets/CatalogoHoteis.png";
 import MoviePB from "../assets/MoviePB.png";
 import CadastroLogin from "../assets/CadastroLogin.png";
 import PortalNB from "../assets/PortalNB.png";
+import NetflixClone from "../assets/NetflixClone.png";
 
 export default function Projetos() {
   return (
@@ -126,6 +127,24 @@ export default function Projetos() {
             </p>
             <a
               href="https://news-page-1kyh-nybertoccos-projects.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Ver Projeto</button>
+            </a>
+          </section>
+        </div>
+        <div className="NetflixClone">
+          <img src={NetflixClone} alt="Netflix Clone" />
+
+          <section>
+            <h3>Netflix Clone</h3>
+            <p>
+              Clone da interface da Netflix, com funções de adicionar e remover
+              da lista.
+            </p>
+            <a
+              href="https://netflix-clone-update-brown.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >

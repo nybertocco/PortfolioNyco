@@ -1,5 +1,7 @@
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+
 import Header from "../components/header/Header.jsx";
 import Footer from "../components/footer/index.jsx";
 import html5 from "../assets/html5.svg";
@@ -16,8 +18,14 @@ import dioScrum from "../assets/dio-scrum.png";
 import dioBootstrap from "../assets/dio-bootstrap.png";
 import senai from "../assets/senai.png";
 import senai2 from "../assets/senai2.png";
+import senaiPowerBI from "../assets/senaiPowerBI.png";
 
 export default function Sobre() {
+  const scrollRef = useRef(null);
+  const scroll = (direction) => {
+    scrollRef.current.scrollBy({ left: direction * 260, behavior: "smooth" });
+  };
+
   return (
     <main className="content-personal">
       <Header />
@@ -46,11 +54,11 @@ export default function Sobre() {
             <ol>
               <p>
                 <img src={html5} alt="Logo HTML" />
-                HTML
+                HTML5
               </p>
               <p>
                 <img src={css3} alt="Logo CSS" />
-                CSS
+                CSS3
               </p>
               <p>
                 <img src={javascript} alt="Logo Javascript" />
@@ -91,82 +99,103 @@ export default function Sobre() {
 
       <h2 className="h2-cert">Meus Certificados</h2>
 
-      <div className="cert-views">
-        <div className="cert">
-          <img src={discover} alt="Certificado Discover RocketSeat" />
-          <div className="info-cert">
-            <h3 className="discover">Discover</h3>
-            <p>RocketSeat</p>
-            <span>2023</span>
+      <div className="cert-carousel-wrapper">
+        <button className="cert-carousel-btn" onClick={() => scroll(-1)}>
+          ‹
+        </button>
+
+        <div className="cert-views" ref={scrollRef}>
+          <div className="cert">
+            <img src={discover} alt="Certificado Discover RocketSeat" />
+            <div className="info-cert">
+              <h3 className="discover">Discover</h3>
+              <p>RocketSeat</p>
+              <span>2023</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={htmlcss} alt="Certificado HTML e CSS RocketSeat" />
+            <div className="info-cert">
+              <h3>HTML e CSS</h3>
+              <p>RocketSeat</p>
+              <span>2024</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={backend} alt="Certificado Backend RocketSeat" />
+            <div className="info-cert">
+              <h3>Backend JR</h3>
+              <p>RocketSeat</p>
+              <span>2024</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={javascript2} alt="Certificado JavaScript" />
+            <div className="info-cert">
+              <h3>JavaScript</h3>
+              <p>RocketSeat</p>
+              <span>2024</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={dioNetflix} alt="Certificado Dio" />
+            <div className="info-cert">
+              <h3>Recriando Interface Netflix</h3>
+              <p>Dio</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={dioBootstrap} alt="Certificado Dio" />
+            <div className="info-cert">
+              <h3>Construindo páginas com Bootstrap</h3>
+              <p>Dio</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={dioScrum} alt="Certificado Dio" />
+            <div className="info-cert">
+              <h3>Projetos ágeis com SCRUM</h3>
+              <p>Dio</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img
+              src={senai2}
+              alt="Certificado Senai - Fluência - Fundamentos da IA"
+            />
+            <div className="info-cert">
+              <h3>Fluência - Fundamentos da IA</h3>
+              <p>Senai</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={senai2} alt="Certificado Senai - Ética na IA" />
+            <div className="info-cert">
+              <h3>Ética na IA</h3>
+              <p>Senai</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img
+              src={senaiPowerBI}
+              alt="Certificado Senai - Microsoft Power BI"
+            />
+            <div className="info-cert">
+              <h3>Microsoft Power BI</h3>
+              <p>Senai</p>
+              <span>2026</span>
+            </div>
           </div>
         </div>
-        <div className="cert">
-          <img src={htmlcss} alt="Certificado HTML e CSS RocketSeat" />
-          <div className="info-cert">
-            <h3>HTML e CSS</h3>
-            <p>RocketSeat</p>
-            <span>2024</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={backend} alt="Certificado Backend RocketSeat" />
-          <div className="info-cert">
-            <h3>Backend JR</h3>
-            <p>RocketSeat</p>
-            <span>2024</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={javascript2} alt="Certificado JavaScript" />
-          <div className="info-cert">
-            <h3>JavaScript</h3>
-            <p>RocketSeat</p>
-            <span>2024</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={dioNetflix} alt="Certificado Dio" />
-          <div className="info-cert">
-            <h3>Recriando Interface Netflix</h3>
-            <p>Dio</p>
-            <span>2026</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={dioBootstrap} alt="Certificado Dio" />
-          <div className="info-cert">
-            <h3>Construindo páginas com Bootstrap</h3>
-            <p>Dio</p>
-            <span>2026</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={dioScrum} alt="Certificado Dio" />
-          <div className="info-cert">
-            <h3>Projetos ágeis com SCRUM</h3>
-            <p>Dio</p>
-            <span>2026</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img
-            src={senai2}
-            alt="Certificado Senai - Fluência - Fundamentos da IA"
-          />
-          <div className="info-cert">
-            <h3>Fluência - Fundamentos da IA</h3>
-            <p>Senai</p>
-            <span>2026</span>
-          </div>
-        </div>
-        <div className="cert">
-          <img src={senai2} alt="Certificado Senai - Ética na IA" />
-          <div className="info-cert">
-            <h3>Ética na IA</h3>
-            <p>Senai</p>
-            <span>2026</span>
-          </div>
-        </div>
+
+        <button className="cert-carousel-btn" onClick={() => scroll(1)}>
+          ›
+        </button>
       </div>
 
       <Footer />
