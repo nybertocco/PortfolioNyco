@@ -298,6 +298,8 @@
     .cert {
       width: 230px;
       height: 32rem;
+      scroll-snap-stop: always; /* impede pular mais de 1 card */
+  }
     }
 
     .info-cert {

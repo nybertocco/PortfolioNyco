@@ -22,8 +22,14 @@ import senaiPowerBI from "../assets/senaiPowerBI.png";
 
 export default function Sobre() {
   const scrollRef = useRef(null);
+
   const scroll = (direction) => {
-    scrollRef.current.scrollBy({ left: direction * 260, behavior: "smooth" });
+    const card = scrollRef.current.querySelector(".cert");
+    const cardWidth = card.offsetWidth + 32;
+    scrollRef.current.scrollBy({
+      left: direction * cardWidth,
+      behavior: "smooth",
+    });
   };
 
   return (
