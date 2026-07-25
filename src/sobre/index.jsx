@@ -19,6 +19,7 @@ import dioBootstrap from "../assets/dio-bootstrap.png";
 import senai from "../assets/senai.png";
 import senai2 from "../assets/senai2.png";
 import senaiPowerBI from "../assets/senaiPowerBI.png";
+import udemy from "../assets/udemy-n8n.png";
 
 export default function Sobre() {
   const scrollRef = useRef(null);
@@ -194,6 +195,14 @@ export default function Sobre() {
             <div className="info-cert">
               <h3>Microsoft Power BI</h3>
               <p>Senai</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={udemy} alt="Certificado Udemy - Automação com n8n" />
+            <div className="info-cert">
+              <h3>Automação com n8n</h3>
+              <p>Udemy</p>
               <span>2026</span>
             </div>
           </div>
