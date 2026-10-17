@@ -20,6 +20,7 @@ import senai from "../assets/senai.png";
 import senai2 from "../assets/senai2.png";
 import senaiPowerBI from "../assets/senaiPowerBI.png";
 import udemy from "../assets/udemy-n8n.png";
+import fullstack from "../assets/fullstack.png";
 
 export default function Sobre() {
   const scrollRef = useRef(null);
@@ -170,7 +171,7 @@ export default function Sobre() {
           </div>
           <div className="cert">
             <img
-              src={senai2}
+              src={senai}
               alt="Certificado Senai - Fluência - Fundamentos da IA"
             />
             <div className="info-cert">
@@ -202,6 +203,14 @@ export default function Sobre() {
             <img src={udemy} alt="Certificado Udemy - Automação com n8n" />
             <div className="info-cert">
               <h3>Automação com n8n</h3>
+              <p>Udemy</p>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="cert">
+            <img src={fullstack} alt="Certificado Udemy - Full Stack" />
+            <div className="info-cert">
+              <h3>Full Stack</h3>
               <p>Udemy</p>
               <span>2026</span>
             </div>

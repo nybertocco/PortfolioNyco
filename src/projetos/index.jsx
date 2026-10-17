@@ -8,6 +8,7 @@ import MoviePB from "../assets/MoviePB.png";
 import CadastroLogin from "../assets/CadastroLogin.png";
 import PortalNB from "../assets/PortalNB.png";
 import NetflixClone from "../assets/NetflixClone.png";
+import CasaHamburguer from "../assets/CasaHamburguer.png";
 
 export default function Projetos() {
   return (
@@ -145,6 +146,24 @@ export default function Projetos() {
             </p>
             <a
               href="https://netflix-clone-update-brown.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Ver Projeto</button>
+            </a>
+          </section>
+        </div>
+        <div className="FullStack">
+          <img src={CasaHamburguer} alt="Casa do Hamburguer" />
+
+          <section>
+            <h3>Casa do Hamburguer</h3>
+            <p>
+              Projeto de um site de hamburgueria, com funções de adicionar e
+              remover produtos ao carrinho. Meu primeiro projeto full stack.
+            </p>
+            <a
+              href="https://github.com/nybertocco/casa-do-hamburguer"
               target="_blank"
               rel="noopener noreferrer"
             >
