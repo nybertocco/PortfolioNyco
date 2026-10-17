@@ -1,179 +1,42 @@
-import "./index.css";
-import Header from "../components/header/Header.jsx";
-import Footer from "../components/footer/index.jsx";
-import NewDevLinks from "../assets/NewDevLinks.png";
-import AgendaSemanal from "../assets/AgendaSemanal.png";
-import CatalogoHoteis from "../assets/CatalogoHoteis.png";
-import MoviePB from "../assets/MoviePB.png";
-import CadastroLogin from "../assets/CadastroLogin.png";
-import PortalNB from "../assets/PortalNB.png";
-import NetflixClone from "../assets/NetflixClone.png";
-import CasaHamburguer from "../assets/CasaHamburguer.png";
+const imgs = import.meta.glob("../assets/*.png", { eager: true, import: "default" });
+
+// Para mostrar as tecnologias de cada projeto, preencha o campo "tags".
+const projects = [
+  { img: "CasaHamburguer", title: "Casa do Hamburguer", tags: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Tailwind CSS"],
+    desc: "Site de hamburgueria com carrinho para adicionar e remover produtos. Meu primeiro projeto full stack.", url: "https://github.com/nybertocco/casa-do-hamburguer", label: "Ver código" },
+  { img: "NetflixClone", title: "Netflix Clone", tags: ["React"],
+    desc: "Clone da interface da Netflix, com funções de adicionar e remover da lista.", url: "https://netflix-clone-update-brown.vercel.app/" },
+  { img: "MoviePB", title: "MoviePB", tags: ["React", "React Router"],
+    desc: "Catálogo de filmes em alta, com sinopse, classificação e data.", url: "https://nybertocco.github.io/moviepb/" },
+  { img: "CatalogoHoteis", title: "Catálogo de Hotéis", tags: ["React", "Flexbox", "CSS Grid"],
+    desc: "Cadastro, avaliação e classificação de hotéis para aluguel.", url: "https://nybertocco.github.io/hoteis-catalogo/" },
+  { img: "PortalNB", title: "PortalNB", tags: ["API GNews"],
+    desc: "Portal de notícias do mundo todo, com busca por palavras-chave usando a API GNews.", url: "https://news-page-1kyh-nybertoccos-projects.vercel.app" },
+  { img: "NewDevLinks", title: "New-DevLinks", tags: [],
+    desc: "Atualização do DevLinks, mini portfólio do curso da RocketSeat para reunir links de projetos e redes sociais.", url: "https://new-dev-links.vercel.app" },
+  { img: "AgendaSemanal", title: "Agenda Semanal", tags: [],
+    desc: "Cronograma de dias e horários, útil para academias, clínicas e outros negócios.", url: "https://nybertocco.github.io/Agenda/" },
+  { img: "CadastroLogin", title: "FormTest", tags: [],
+    desc: "Formulário de cadastro e login para sites e aplicativos.", url: "https://nybertocco.github.io/formtest/" },
+];
 
 export default function Projetos() {
   return (
-    <main>
-      <Header />
-
-      <div className="title-project">
-        <h2>Meus Projetos</h2>
+    <section className="section">
+      <h1 className="title reveal">Meus projetos</h1>
+      <div className="grid">
+        {projects.map((p) => (
+          <article key={p.title} className="card project reveal">
+            <img src={imgs[`../assets/${p.img}.png`]} alt={`Projeto ${p.title}`} loading="lazy" />
+            <div className="body">
+              <h3>{p.title}</h3>
+              {p.tags.length > 0 && <ul>{p.tags.map((t) => <li key={t} className="chip small">{t}</li>)}</ul>}
+              <p>{p.desc}</p>
+              <a className="btn" href={p.url} target="_blank" rel="noopener noreferrer">{p.label || "Ver projeto"}</a>
+            </div>
+          </article>
+        ))}
       </div>
-
-      <div className="projects">
-        <div className="NewDevLinks">
-          <img src={NewDevLinks} alt="Projeto New-DevLinks" />
-
-          <section>
-            <h3>New-DevLinks</h3>
-            <p>
-              Atualização do DevLinks, um mini portfólio que eu fiz no curso da
-              RocketSeat, muito útil para colocar links de projetos, redes
-              sociais e portfólios.
-            </p>
-
-            <a
-              href="https://new-dev-links.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-
-        <div className="AgendaSemanal">
-          <img src={AgendaSemanal} alt="Projeto Agenda Semanal" />
-
-          <section>
-            <h3>Agenda Semanal</h3>
-            <p>
-              Cronograma de horários e dias da semana, pode ser usado para
-              diversas empresas públicas como, academias, clínicas e etc.
-            </p>
-            <a
-              href="https://nybertocco.github.io/Agenda/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-
-        <div className="CatalogoHoteis">
-          <img src={CatalogoHoteis} alt="Projeto Catálogo de Hotéis" />
-
-          <section>
-            <h3>Catálogo de Hotéis</h3>
-            <p>
-              Projeto para cadastrar hotéis para aluguel, e ao mesmo tempo
-              avaliação e classificação de hotéis.
-            </p>
-            <a
-              href="https://nybertocco.github.io/hoteis-catalogo/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-
-        <div className="MoviePB">
-          <img src={MoviePB} alt="Projeto Catálogo de Filmes" />
-
-          <section>
-            <h3>MoviePB</h3>
-            <p>
-              Catálogo de filmes, para listar e visualizar filmes que estão em
-              alta, sinopse, classificação e data.
-            </p>
-            <a
-              href="https://nybertocco.github.io/moviepb/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-
-        <div className="CadastroLogin">
-          <img src={CadastroLogin} alt="Cadastro de Login" />
-
-          <section>
-            <h3>FormTest</h3>
-            <p>
-              Cadastro de Login, para entrar em sites, aplicativos, se cadastrar
-              em alguma plataforma.
-            </p>
-            <a
-              href="https://nybertocco.github.io/formtest/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-
-        <div className="PortalNB">
-          <img src={PortalNB} alt="PortalNB" />
-
-          <section>
-            <h3>PortalNB</h3>
-            <p>
-              Portal de notícias do mundo todo, implementando API gnews e com
-              uma barra de pesquisa por palavras chave.
-            </p>
-            <a
-              href="https://news-page-1kyh-nybertoccos-projects.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-        <div className="NetflixClone">
-          <img src={NetflixClone} alt="Netflix Clone" />
-
-          <section>
-            <h3>Netflix Clone</h3>
-            <p>
-              Clone da interface da Netflix, com funções de adicionar e remover
-              da lista.
-            </p>
-            <a
-              href="https://netflix-clone-update-brown.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-        <div className="FullStack">
-          <img src={CasaHamburguer} alt="Casa do Hamburguer" />
-
-          <section>
-            <h3>Casa do Hamburguer</h3>
-            <p>
-              Projeto de um site de hamburgueria, com funções de adicionar e
-              remover produtos ao carrinho. Meu primeiro projeto full stack.
-            </p>
-            <a
-              href="https://github.com/nybertocco/casa-do-hamburguer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>Ver Projeto</button>
-            </a>
-          </section>
-        </div>
-      </div>
-
-      <Footer />
-    </main>
+    </section>
   );
 }

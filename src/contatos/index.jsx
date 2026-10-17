@@ -1,39 +1,24 @@
-import "./index.css";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
-import Header from "../components/header/Header.jsx";
-import Footer from "../components/footer/index.jsx";
+
+const items = [
+  [() => <FaEnvelope />, "E-mail", "nybertocco@gmail.com", "mailto:nybertocco@gmail.com"],
+  [() => <FaLinkedin />, "LinkedIn", "linkedin.com/in/nycolasbertocco", "https://www.linkedin.com/in/nycolasbertocco/"],
+  [() => <FaGithub />, "GitHub", "github.com/nybertocco", "https://github.com/nybertocco"],
+];
 
 export default function Contato() {
   return (
-    <main>
-      <Header />
-      <div className="contato-container">
-        <h2>Entre em Contato, Vamos Conversar!</h2>
-        <div className="contato-card">
-          <a
-            href="https://workspace.google.com/intl/pt-BR/gmail/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaEnvelope /> nybertocco@gmail.com
+    <section className="section narrow">
+      <h1 className="title reveal">Vamos conversar!</h1>
+      <p className="lead reveal">Aberto a oportunidades como Desenvolvedor Front-End Júnior ou Estagiário.</p>
+      <div className="contact-grid">
+        {items.map(([icon, label, text, href]) => (
+          <a key={label} className="card contact reveal" href={href} target="_blank" rel="noreferrer">
+            {icon()}
+            <span><small>{label}</small>{text}</span>
           </a>
-          <a
-            href="https://www.linkedin.com/in/nycolasbertocco/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin /> linkedin.com/in/nycolasbertocco
-          </a>
-          <a
-            href="https://github.com/nybertocco"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaGithub /> github.com/nybertocco
-          </a>
-        </div>
+        ))}
       </div>
-      <Footer />
-    </main>
+    </section>
   );
 }

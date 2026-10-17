@@ -1,228 +1,96 @@
-import "./index.css";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
+import {
+  SiHtml5, SiCss3, SiJavascript, SiReact, SiTypescript, SiTailwindcss,
+  SiNodedotjs, SiExpress, SiPostgresql, SiPrisma, SiVite, SiGit, SiGithub, SiVercel,
+} from "react-icons/si";
 
-import Header from "../components/header/Header.jsx";
-import Footer from "../components/footer/index.jsx";
-import html5 from "../assets/html5.svg";
-import css3 from "../assets/css3.svg";
-import javascript from "../assets/javascript.svg";
-import react from "../assets/react.svg";
-import github from "../assets/github.svg";
-import discover from "../assets/discover.png";
-import htmlcss from "../assets/htmlcss.png";
-import backend from "../assets/backend.png";
-import javascript2 from "../assets/javascript.png";
-import dioNetflix from "../assets/dio-netflix.png";
-import dioScrum from "../assets/dio-scrum.png";
-import dioBootstrap from "../assets/dio-bootstrap.png";
-import senai from "../assets/senai.png";
-import senai2 from "../assets/senai2.png";
-import senaiPowerBI from "../assets/senaiPowerBI.png";
-import udemy from "../assets/udemy-n8n.png";
-import fullstack from "../assets/fullstack.png";
+const imgs = import.meta.glob("../assets/*.png", { eager: true, import: "default" });
+const img = (name) => imgs[`../assets/${name}.png`];
+
+const skills = [
+  ["Front-End", [[<SiHtml5 />, "HTML5"], [<SiCss3 />, "CSS3"], [<SiJavascript />, "JavaScript"], [<SiReact />, "React.js"], [<SiTypescript />, "TypeScript"], [<SiTailwindcss />, "Tailwind CSS"]]],
+  ["Back-End", [[<SiNodedotjs />, "Node.js"], [<SiExpress />, "Express"], [<SiPostgresql />, "PostgreSQL"], [<SiPrisma />, "Prisma"]]],
+  ["Ferramentas", [[<SiGit />, "Git"], [<SiGithub />, "GitHub"], [<SiVite />, "Vite"], [<SiVercel />, "Vercel"]]],
+];
+
+const education = [
+  ["Análise e Desenvolvimento de Sistemas", "Centro Universitário Facens", "2025 - 2027 (previsão)"],
+  ["Engenharia de Software", "Instituto Infnet", "2024"],
+  ["Desenvolvimento Web (Front-End)", "RocketSeat", "2023 - 2024"],
+];
+
+const certs = [
+  ["fullstack", "Full Stack: React, Node, PostgreSQL e TS", "Udemy", 2026],
+  ["udemy-n8n", "Automação com n8n", "Udemy", 2026],
+  ["senai", "Fluência - Fundamentos da IA", "Senai", 2026],
+  ["senai2", "Ética na IA", "Senai", 2026],
+  ["senaiPowerBI", "Microsoft Power BI", "Senai", 2026],
+  ["dio-netflix", "Recriando Interface Netflix", "Dio", 2026],
+  ["dio-bootstrap", "Construindo páginas com Bootstrap", "Dio", 2026],
+  ["dio-scrum", "Projetos ágeis com SCRUM", "Dio", 2026],
+  ["javascript", "JavaScript", "RocketSeat", 2024],
+  ["backend", "Backend Jr.", "RocketSeat", 2024],
+  ["htmlcss", "HTML e CSS", "RocketSeat", 2024],
+  ["discover", "Discover", "RocketSeat", 2023],
+];
 
 export default function Sobre() {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    const card = scrollRef.current.querySelector(".cert");
-    const cardWidth = card.offsetWidth + 32;
-    scrollRef.current.scrollBy({
-      left: direction * cardWidth,
-      behavior: "smooth",
-    });
-  };
+  const track = useRef(null);
+  const scroll = (dir) => track.current.scrollBy({ left: dir * track.current.clientWidth * 0.8, behavior: "smooth" });
 
   return (
-    <main className="content-personal">
-      <Header />
+    <>
+      <section className="section narrow">
+        <h1 className="title reveal">Sobre mim</h1>
+        <p className="lead reveal">
+          Sou Desenvolvedor Front-End e comecei a programar em 2023, com o primeiro curso da RocketSeat, no meu último ano do ensino médio.
+          Em 2024 cursei Engenharia de Software na Infnet e, em 2025, migrei para Análise e Desenvolvimento de Sistemas na Facens.
+        </p>
+        <p className="lead reveal">
+          Minha base é o front-end: HTML, CSS, JavaScript e React.js. Agora estou ampliando meus estudos para o Full Stack,
+          com TypeScript, Node.js, Express, PostgreSQL, Prisma e Tailwind CSS.
+        </p>
+      </section>
 
-      <div className="container">
-        <div className="bio-section">
-          <h1>Sobre Mim</h1>
-          <p>
-            Olá, me chamo Nycolas, sou desenvolvedor Front-End e comecei meu
-            primeiro curso de programação em 2023, da RocketSeat, no meu último
-            ano do ensino médio.
-            <br /> Em 2024 fiz um ano de graduação de Engenharia de Software no
-            Instituo Infnet (EAD), e em 2025 migrei pra Ánalise e
-            Desenvolvimento de Sistemas no Centro Universitário Facens.
-            <br /> Minhas principais habilidades são HTML, CSS, Javascript e
-            React.js, e para versionamento de código, GitHub.{" "}
-          </p>
+      <section className="section narrow">
+        <h2 className="subtitle reveal">Habilidades</h2>
+        {skills.map(([group, list]) => (
+          <div key={group} className="skill-group reveal">
+            <h3>{group}</h3>
+            <ul>{list.map(([icon, name]) => <li key={name} className="chip">{icon} {name}</li>)}</ul>
+          </div>
+        ))}
+      </section>
+
+      <section className="section narrow">
+        <h2 className="subtitle reveal">Formação</h2>
+        <div className="timeline">
+          {education.map(([title, place, date]) => (
+            <div key={title} className="card reveal">
+              <h3>{title}</h3>
+              <p>{place}</p>
+              <span className="accent">{date}</span>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      <div className="skills-section">
-        <h2>Habilidades</h2>
-
-        <div className="skills">
-          <menu>
-            <ol>
-              <p>
-                <img src={html5} alt="Logo HTML" />
-                HTML5
-              </p>
-              <p>
-                <img src={css3} alt="Logo CSS" />
-                CSS3
-              </p>
-              <p>
-                <img src={javascript} alt="Logo Javascript" />
-                JavaScript
-              </p>
-              <p>
-                <img src={react} alt="Logo React" />
-                React.js
-              </p>
-              <p>
-                <img src={github} alt="Logo GitHub" />
-                GitHub
-              </p>
-            </ol>
-          </menu>
+      <section className="section">
+        <h2 className="subtitle reveal">Certificados</h2>
+        <div className="carousel reveal">
+          <button onClick={() => scroll(-1)} aria-label="Anterior">‹</button>
+          <div className="track" ref={track}>
+            {certs.map(([file, title, org, year]) => (
+              <article key={file} className="card cert">
+                <img src={img(file)} alt={`Certificado ${title}`} loading="lazy" />
+                <h3>{title}</h3>
+                <p>{org} · <span className="accent">{year}</span></p>
+              </article>
+            ))}
+          </div>
+          <button onClick={() => scroll(1)} aria-label="Próximo">›</button>
         </div>
-      </div>
-
-      <div className="certifications-section">
-        <h2>Formação Acadêmica</h2>
-
-        <div className="register-cert">
-          <h3>Desenvolvedor de Software</h3>
-          <p>RocketSeat - Curso Online</p>
-          <span>2023 - 2024</span>
-        </div>
-        <div className="register-cert">
-          <h3>Engenharia de Software</h3>
-          <p>Instituto Infnet</p>
-          <span>2024 - 2025</span>
-        </div>
-        <div className="register-cert">
-          <h3>Ánalise e Desenvolvimento de Sistemas</h3>
-          <p>Centro Universitário Facens</p>
-          <span>2025 - 2027</span>
-        </div>
-      </div>
-
-      <h2 className="h2-cert">Meus Certificados</h2>
-
-      <div className="cert-carousel-wrapper">
-        <button className="cert-carousel-btn" onClick={() => scroll(-1)}>
-          ‹
-        </button>
-
-        <div className="cert-views" ref={scrollRef}>
-          <div className="cert">
-            <img src={discover} alt="Certificado Discover RocketSeat" />
-            <div className="info-cert">
-              <h3 className="discover">Discover</h3>
-              <p>RocketSeat</p>
-              <span>2023</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={htmlcss} alt="Certificado HTML e CSS RocketSeat" />
-            <div className="info-cert">
-              <h3>HTML e CSS</h3>
-              <p>RocketSeat</p>
-              <span>2024</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={backend} alt="Certificado Backend RocketSeat" />
-            <div className="info-cert">
-              <h3>Backend JR</h3>
-              <p>RocketSeat</p>
-              <span>2024</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={javascript2} alt="Certificado JavaScript" />
-            <div className="info-cert">
-              <h3>JavaScript</h3>
-              <p>RocketSeat</p>
-              <span>2024</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={dioNetflix} alt="Certificado Dio" />
-            <div className="info-cert">
-              <h3>Recriando Interface Netflix</h3>
-              <p>Dio</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={dioBootstrap} alt="Certificado Dio" />
-            <div className="info-cert">
-              <h3>Construindo páginas com Bootstrap</h3>
-              <p>Dio</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={dioScrum} alt="Certificado Dio" />
-            <div className="info-cert">
-              <h3>Projetos ágeis com SCRUM</h3>
-              <p>Dio</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img
-              src={senai}
-              alt="Certificado Senai - Fluência - Fundamentos da IA"
-            />
-            <div className="info-cert">
-              <h3>Fluência - Fundamentos da IA</h3>
-              <p>Senai</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={senai2} alt="Certificado Senai - Ética na IA" />
-            <div className="info-cert">
-              <h3>Ética na IA</h3>
-              <p>Senai</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img
-              src={senaiPowerBI}
-              alt="Certificado Senai - Microsoft Power BI"
-            />
-            <div className="info-cert">
-              <h3>Microsoft Power BI</h3>
-              <p>Senai</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={udemy} alt="Certificado Udemy - Automação com n8n" />
-            <div className="info-cert">
-              <h3>Automação com n8n</h3>
-              <p>Udemy</p>
-              <span>2026</span>
-            </div>
-          </div>
-          <div className="cert">
-            <img src={fullstack} alt="Certificado Udemy - Full Stack" />
-            <div className="info-cert">
-              <h3>Full Stack</h3>
-              <p>Udemy</p>
-              <span>2026</span>
-            </div>
-          </div>
-        </div>
-
-        <button className="cert-carousel-btn" onClick={() => scroll(1)}>
-          ›
-        </button>
-      </div>
-
-      <Footer />
-    </main>
+      </section>
+    </>
   );
 }
