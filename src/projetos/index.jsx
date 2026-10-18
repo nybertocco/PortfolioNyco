@@ -3,7 +3,8 @@ const imgs = import.meta.glob("../assets/*.png", { eager: true, import: "default
 // Para mostrar as tecnologias de cada projeto, preencha o campo "tags".
 const projects = [
   { img: "CasaHamburguer", title: "Casa do Hamburguer", tags: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Tailwind CSS"],
-    desc: "Site de hamburgueria com carrinho para adicionar e remover produtos. Meu primeiro projeto full stack.", url: "https://github.com/nybertocco/casa-do-hamburguer", label: "Ver código" },
+    desc: "Hamburgueria full stack com cadastro, login, carrinho e painel de pedidos para o administrador. Front-end no Netlify, API no Render e banco no Neon. A primeira visita pode demorar um pouco, pois o servidor é gratuito.",
+    url: "https://casa-do-hamburguer-nb.netlify.app/", label: "Ver site", code: "https://github.com/nybertocco/casa-do-hamburguer" },
   { img: "NetflixClone", title: "Netflix Clone", tags: ["React"],
     desc: "Clone da interface da Netflix, com funções de adicionar e remover da lista.", url: "https://netflix-clone-update-brown.vercel.app/" },
   { img: "MoviePB", title: "MoviePB", tags: ["React", "React Router"],
@@ -32,7 +33,10 @@ export default function Projetos() {
               <h3>{p.title}</h3>
               {p.tags.length > 0 && <ul>{p.tags.map((t) => <li key={t} className="chip small">{t}</li>)}</ul>}
               <p>{p.desc}</p>
-              <a className="btn" href={p.url} target="_blank" rel="noopener noreferrer">{p.label || "Ver projeto"}</a>
+              <div className="actions">
+                <a className="btn" href={p.url} target="_blank" rel="noopener noreferrer">{p.label || "Ver projeto"}</a>
+                {p.code && <a className="btn" href={p.code} target="_blank" rel="noopener noreferrer">Ver código</a>}
+              </div>
             </div>
           </article>
         ))}

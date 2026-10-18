@@ -337,6 +337,12 @@ img {
   flex: 1;
 }
 
+.project .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 /* Certificados */
 .carousel {
   display: flex;
