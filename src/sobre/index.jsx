@@ -79,6 +79,8 @@ const certs = [
   ["discover", "Discover", "RocketSeat", 2023],
 ];
 
+const techCount = skills.reduce((sum, [, list]) => sum + list.length, 0);
+
 export default function Sobre() {
   const track = useRef(null);
   const scroll = (dir) =>
@@ -114,6 +116,14 @@ export default function Sobre() {
           estou ampliando meus estudos para o Full Stack, com TypeScript,
           Node.js, Express, PostgreSQL, Prisma e Tailwind CSS.
         </p>
+      </section>
+
+      <section className="section narrow">
+        <div className="stats reveal">
+          {[["2023", "começou a programar"], [certs.length, "certificados"], [techCount, "tecnologias"]].map(([n, label]) => (
+            <div key={label} className="card stat"><strong>{n}</strong><span>{label}</span></div>
+          ))}
+        </div>
       </section>
 
       <section className="section narrow">

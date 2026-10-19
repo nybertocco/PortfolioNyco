@@ -1,10 +1,12 @@
+import { useState } from "react";
+
 const imgs = import.meta.glob("../assets/*.png", { eager: true, import: "default" });
 
 // Para mostrar as tecnologias de cada projeto, preencha o campo "tags".
 const projects = [
   { img: "CasaHamburguer", title: "Casa do Hamburguer", tags: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Tailwind CSS"],
     desc: "Hamburgueria full stack com cadastro, login, carrinho e painel de pedidos para o administrador. Front-end no Netlify, API no Render e banco no Neon. A primeira visita pode demorar um pouco, pois o servidor é gratuito.",
-    url: "https://casa-do-hamburguer-nb.netlify.app/", label: "Ver site", code: "https://github.com/nybertocco/casa-do-hamburguer" },
+    url: "https://casa-do-hamburguer-nb.netlify.app/", label: "Ver site", featured: true },
   { img: "NetflixClone", title: "Netflix Clone", tags: ["React"],
     desc: "Clone da interface da Netflix, com funções de adicionar e remover da lista.", url: "https://netflix-clone-update-brown.vercel.app/" },
   { img: "MoviePB", title: "MoviePB", tags: ["React", "React Router"],
@@ -21,13 +23,24 @@ const projects = [
     desc: "Formulário de cadastro e login para sites e aplicativos.", url: "https://nybertocco.github.io/formtest/" },
 ];
 
+const category = (p) => (p.tags.includes("Node.js") ? "Full Stack" : "Front-End");
+
 export default function Projetos() {
+  const [filter, setFilter] = useState("Todos");
+  const visible = projects.filter((p) => filter === "Todos" || category(p) === filter);
+
   return (
     <section className="section">
       <h1 className="title reveal">Meus projetos</h1>
+      <div className="filters reveal">
+        {["Todos", "Full Stack", "Front-End"].map((f) => (
+          <button key={f} className={`chip${filter === f ? " active" : ""}`} onClick={() => setFilter(f)}>{f}</button>
+        ))}
+      </div>
       <div className="grid">
-        {projects.map((p) => (
-          <article key={p.title} className="card project reveal">
+        {visible.map((p) => (
+          <article key={p.title} className={`card project in${p.featured && filter === "Todos" ? " featured" : ""}`}>
+            {p.featured && filter === "Todos" && <span className="badge">★ Destaque · Full Stack</span>}
             <img src={imgs[`../assets/${p.img}.png`]} alt={`Projeto ${p.title}`} loading="lazy" />
             <div className="body">
               <h3>{p.title}</h3>
@@ -35,7 +48,6 @@ export default function Projetos() {
               <p>{p.desc}</p>
               <div className="actions">
                 <a className="btn" href={p.url} target="_blank" rel="noopener noreferrer">{p.label || "Ver projeto"}</a>
-                {p.code && <a className="btn" href={p.code} target="_blank" rel="noopener noreferrer">Ver código</a>}
               </div>
             </div>
           </article>

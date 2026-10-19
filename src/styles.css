@@ -26,7 +26,6 @@ html {
 body {
   font-size: 1.6rem;
   line-height: 1.6;
-  background: var(--bg);
 }
 
 a {
@@ -292,9 +291,27 @@ img {
   gap: 1.6rem;
 }
 
+.timeline {
+  position: relative;
+  padding-left: 2.4rem;
+  border-left: 2px solid var(--line);
+}
+
 .timeline .card {
+  position: relative;
   padding: 2.4rem;
-  text-align: center;
+}
+
+.timeline .card::before {
+  content: "";
+  position: absolute;
+  left: -3.35rem;
+  top: 2.8rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 14px var(--accent);
 }
 
 /* Projetos */
@@ -470,6 +487,223 @@ img {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Criativo: fundo, títulos e detalhes */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40rem 40rem at 15% 10%, rgba(92, 121, 184, 0.2), transparent 60%),
+    radial-gradient(36rem 36rem at 85% 90%, rgba(122, 155, 234, 0.13), transparent 60%);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translate3d(3%, 2%, 0) scale(1.1);
+  }
+}
+
+.title,
+.home h1 {
+  background: linear-gradient(90deg, var(--text), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent), var(--accent-2), transparent 55%, var(--accent));
+  animation: spin 6s linear infinite;
+}
+
+.avatar img {
+  position: relative;
+  border: 3px solid var(--bg);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.typing {
+  min-height: 2.6rem;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--accent-2);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.marquee {
+  position: absolute;
+  inset: auto 0 3rem;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 2.6rem;
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  animation: scroll-x 28s linear infinite;
+}
+
+@keyframes scroll-x {
+  to {
+    transform: translateX(calc(-50% - 2rem));
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.stat {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  line-height: 1.1;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat span {
+  font-size: 1.3rem;
+  color: var(--muted);
+}
+
+.chip:hover {
+  box-shadow: 0 0 16px rgba(92, 121, 184, 0.45);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filters .chip {
+  cursor: pointer;
+  color: var(--text);
+}
+
+.filters .chip.active {
+  background: var(--accent);
+  border-color: var(--accent-2);
+}
+
+.project {
+  position: relative;
+}
+
+.project img {
+  transition: transform 0.5s;
+}
+
+.project:hover img {
+  transform: scale(1.05);
+}
+
+.project {
+  overflow: hidden;
+}
+
+.badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 1;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.2rem;
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid var(--accent-2);
+  color: var(--accent-2);
+  backdrop-filter: blur(6px);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #3ddc84;
+  box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 1rem rgba(61, 220, 132, 0);
+  }
+}
+
+@media (min-width: 900px) {
+  .project.featured {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+
+  .project.featured img {
+    width: 55%;
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    object-fit: contain;
+    background: #161410;
+  }
 }
 
 /* Animações */

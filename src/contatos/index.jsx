@@ -11,6 +11,7 @@ export default function Contato() {
     <section className="section narrow">
       <h1 className="title reveal">Vamos conversar!</h1>
       <p className="lead reveal">Aberto a oportunidades como Desenvolvedor Front-End Júnior ou Estagiário.</p>
+      <p className="status reveal"><span className="dot" /> Disponível para novas oportunidades</p>
       <div className="contact-grid">
         {items.map(([icon, label, text, href]) => (
           <a key={label} className="card contact reveal" href={href} target="_blank" rel="noreferrer">
