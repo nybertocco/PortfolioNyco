@@ -130,6 +130,7 @@ strong {
 .brand {
   font-weight: 500;
   font-size: 15px;
+  margin-right: auto;
 }
 
 .nav nav {
@@ -153,6 +154,32 @@ strong {
   text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
+}
+
+.lang-switch {
+  display: flex;
+  margin-left: 28px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.lang-switch button {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+}
+
+.lang-switch button:hover {
+  color: var(--text);
+}
+
+.lang-switch button.active {
+  background: var(--surface);
+  color: var(--text);
 }
 
 .nav-toggle {
@@ -596,6 +623,12 @@ strong {
 
   .nav-toggle {
     display: block;
+    order: 3;
+    margin-left: 12px;
+  }
+
+  .lang-switch {
+    margin-left: 0;
   }
 
   .nav nav {

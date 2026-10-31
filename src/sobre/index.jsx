@@ -15,6 +15,7 @@ import {
   SiGithub,
   SiVercel,
 } from "react-icons/si";
+import { useLang, pick } from "../i18n.jsx";
 
 const imgs = import.meta.glob("../assets/*.png", {
   eager: true,
@@ -44,7 +45,7 @@ const skills = [
     ],
   ],
   [
-    "Ferramentas",
+    "tools",
     [
       [<SiGit />, "Git"],
       [<SiGithub />, "GitHub"],
@@ -56,30 +57,31 @@ const skills = [
 
 const education = [
   [
-    "Análise e Desenvolvimento de Sistemas",
-    "Centro Universitário Facens",
-    "2025 - 2027 (previsão)",
+    { pt: "Análise e Desenvolvimento de Sistemas", en: "Systems Analysis and Development" },
+    { pt: "Centro Universitário Facens", en: "Facens University Center" },
+    { pt: "2025 - 2027 (previsão)", en: "2025 - 2027 (expected)" },
   ],
-  ["Engenharia de Software", "Instituto Infnet", "2024"],
-  ["Desenvolvimento Web (Front-End)", "RocketSeat", "2023 - 2024"],
+  [{ pt: "Engenharia de Software", en: "Software Engineering" }, { pt: "Instituto Infnet", en: "Infnet Institute" }, "2024"],
+  [{ pt: "Desenvolvimento Web (Front-End)", en: "Web Development (Front-End)" }, "RocketSeat", "2023 - 2024"],
 ];
 
 const certs = [
-  ["fullstack", "Full Stack: React, Node, PostgreSQL e TS", "Udemy", 2026],
-  ["udemy-n8n", "Automação com n8n", "Udemy", 2026],
-  ["senai", "Fluência - Fundamentos da IA", "Senai", 2026],
-  ["senai2", "Ética na IA", "Senai", 2026],
+  ["fullstack", { pt: "Full Stack: React, Node, PostgreSQL e TS", en: "Full Stack: React, Node, PostgreSQL and TS" }, "Udemy", 2026],
+  ["udemy-n8n", { pt: "Automação com n8n", en: "Automation with n8n" }, "Udemy", 2026],
+  ["senai", { pt: "Fluência - Fundamentos da IA", en: "AI Fluency - Fundamentals" }, "Senai", 2026],
+  ["senai2", { pt: "Ética na IA", en: "AI Ethics" }, "Senai", 2026],
   ["senaiPowerBI", "Microsoft Power BI", "Senai", 2026],
-  ["dio-netflix", "Recriando Interface Netflix", "Dio", 2026],
-  ["dio-bootstrap", "Construindo páginas com Bootstrap", "Dio", 2026],
-  ["dio-scrum", "Projetos ágeis com SCRUM", "Dio", 2026],
+  ["dio-netflix", { pt: "Recriando Interface Netflix", en: "Recreating the Netflix Interface" }, "Dio", 2026],
+  ["dio-bootstrap", { pt: "Construindo páginas com Bootstrap", en: "Building Pages with Bootstrap" }, "Dio", 2026],
+  ["dio-scrum", { pt: "Projetos ágeis com SCRUM", en: "Agile Projects with SCRUM" }, "Dio", 2026],
   ["javascript", "JavaScript", "RocketSeat", 2024],
   ["backend", "Backend Jr.", "RocketSeat", 2024],
-  ["htmlcss", "HTML e CSS", "RocketSeat", 2024],
+  ["htmlcss", { pt: "HTML e CSS", en: "HTML and CSS" }, "RocketSeat", 2024],
   ["discover", "Discover", "RocketSeat", 2023],
 ];
 
 export default function Sobre() {
+  const { lang, t } = useLang();
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -97,29 +99,20 @@ export default function Sobre() {
     <>
       <section className="narrow">
         <header className="page-head">
-          <h1>Sobre mim</h1>
+          <h1>{t.about.title}</h1>
         </header>
         <div className="prose">
-          <p>
-            Sou Desenvolvedor Front-End e comecei a programar em 2023, com o
-            primeiro curso da RocketSeat, no meu último ano do ensino médio. Em
-            2024 cursei Engenharia de Software na Infnet e, em 2025, migrei para
-            Análise e Desenvolvimento de Sistemas na Facens.
-          </p>
-          <p>
-            Minha base é o front-end: HTML, CSS, JavaScript e React.js. Agora
-            estou ampliando meus estudos para o Full Stack, com TypeScript,
-            Node.js, Express, PostgreSQL, Prisma e Tailwind CSS.
-          </p>
+          <p>{t.about.p1}</p>
+          <p>{t.about.p2}</p>
         </div>
       </section>
 
       <section className="narrow block">
-        <h2 className="section-title">Habilidades</h2>
+        <h2 className="section-title">{t.about.skills}</h2>
         <dl className="rows">
           {skills.map(([group, list]) => (
             <div key={group} className="row">
-              <dt>{group}</dt>
+              <dt>{group === "tools" ? t.about.tools : group}</dt>
               <dd className="skills">
                 {list.map(([icon, name]) => (
                   <span key={name} className="skill">{icon} {name}</span>
@@ -131,14 +124,14 @@ export default function Sobre() {
       </section>
 
       <section className="narrow block">
-        <h2 className="section-title">Formação</h2>
+        <h2 className="section-title">{t.about.education}</h2>
         <dl className="rows">
           {education.map(([title, place, date]) => (
-            <div key={title} className="row">
-              <dt>{date}</dt>
+            <div key={pick(title, "pt")} className="row">
+              <dt>{pick(date, lang)}</dt>
               <dd>
-                <strong>{title}</strong>
-                <span className="muted">{place}</span>
+                <strong>{pick(title, lang)}</strong>
+                <span className="muted">{pick(place, lang)}</span>
               </dd>
             </div>
           ))}
@@ -146,12 +139,12 @@ export default function Sobre() {
       </section>
 
       <section className="block">
-        <h2 className="section-title">Certificados <span className="count">{certs.length}</span></h2>
+        <h2 className="section-title">{t.about.certificates} <span className="count">{certs.length}</span></h2>
         <div className="certs">
           {certs.map(([file, title, org, year]) => (
-            <button key={file} className="cert" onClick={() => setSelected({ src: img(file), title })}>
-              <img src={img(file)} alt={`Certificado ${title}`} loading="lazy" />
-              <span className="cert-title">{title}</span>
+            <button key={file} className="cert" onClick={() => setSelected({ src: img(file), title: pick(title, lang) })}>
+              <img src={img(file)} alt={`${t.about.certificate} ${pick(title, lang)}`} loading="lazy" />
+              <span className="cert-title">{pick(title, lang)}</span>
               <span className="muted small">{org} · {year}</span>
             </button>
           ))}
@@ -159,9 +152,9 @@ export default function Sobre() {
       </section>
 
       {selected && (
-        <div className="lightbox" onClick={() => setSelected(null)} role="dialog" aria-label={`Certificado ${selected.title}`}>
-          <button className="lightbox-close" aria-label="Fechar">✕</button>
-          <img src={selected.src} alt={`Certificado ${selected.title}`} onClick={(e) => e.stopPropagation()} />
+        <div className="lightbox" onClick={() => setSelected(null)} role="dialog" aria-label={`${t.about.certificate} ${selected.title}`}>
+          <button className="lightbox-close" aria-label={t.about.close}>✕</button>
+          <img src={selected.src} alt={`${t.about.certificate} ${selected.title}`} onClick={(e) => e.stopPropagation()} />
         </div>
       )}
     </>

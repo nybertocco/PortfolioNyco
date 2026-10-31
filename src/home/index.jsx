@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 import profile from "../assets/profile.jpg";
+import { useLang } from "../i18n.jsx";
 
 const stack = ["React.js", "JavaScript", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"];
 
 export default function Home() {
+  const { t } = useLang();
   return (
     <section className="hero">
-      <img className="avatar" src={profile} alt="Foto de Nycolas Bertocco" />
-      <p className="eyebrow">Desenvolvedor Front-End · Sorocaba, SP</p>
+      <img className="avatar" src={profile} alt={t.home.photoAlt} />
+      <p className="eyebrow">{t.home.eyebrow}</p>
       <h1>
-        Olá, eu sou o Nycolas.
-        <span className="muted"> Crio interfaces simples, rápidas e bem cuidadas com React.</span>
+        {t.home.hello}
+        <span className="muted">{t.home.tagline}</span>
       </h1>
       <p className="hero-stack">{stack.join(" · ")}</p>
       <div className="hero-actions">
-        <Link to="/projetos" className="btn primary">Ver projetos</Link>
-        <Link to="/contato" className="btn">Entrar em contato</Link>
+        <Link to="/projetos" className="btn primary">{t.home.ctaProjects}</Link>
+        <Link to="/contato" className="btn">{t.home.ctaContact}</Link>
       </div>
     </section>
   );
