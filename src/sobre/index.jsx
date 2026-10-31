@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   SiHtml5,
   SiCss3,
@@ -151,11 +152,12 @@ export default function Sobre() {
         </div>
       </section>
 
-      {selected && (
+      {selected && createPortal(
         <div className="lightbox" onClick={() => setSelected(null)} role="dialog" aria-label={`${t.about.certificate} ${selected.title}`}>
           <button className="lightbox-close" aria-label={t.about.close}>✕</button>
           <img src={selected.src} alt={`${t.about.certificate} ${selected.title}`} onClick={(e) => e.stopPropagation()} />
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
