@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   SiHtml5,
   SiCss3,
@@ -79,15 +79,7 @@ const certs = [
   ["discover", "Discover", "RocketSeat", 2023],
 ];
 
-const techCount = skills.reduce((sum, [, list]) => sum + list.length, 0);
-
 export default function Sobre() {
-  const track = useRef(null);
-  const scroll = (dir) =>
-    track.current.scrollBy({
-      left: dir * track.current.clientWidth * 0.8,
-      behavior: "smooth",
-    });
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -103,103 +95,73 @@ export default function Sobre() {
 
   return (
     <>
-      <section className="section narrow">
-        <h1 className="title reveal">Sobre mim</h1>
-        <p className="lead reveal">
-          Sou Desenvolvedor Front-End e comecei a programar em 2023, com o
-          primeiro curso da RocketSeat, no meu último ano do ensino médio. Em
-          2024 cursei Engenharia de Software na Infnet e, em 2025, migrei para
-          Análise e Desenvolvimento de Sistemas na Facens.
-        </p>
-        <p className="lead reveal">
-          Minha base é o front-end: HTML, CSS, JavaScript e React.js. Agora
-          estou ampliando meus estudos para o Full Stack, com TypeScript,
-          Node.js, Express, PostgreSQL, Prisma e Tailwind CSS.
-        </p>
-      </section>
-
-      <section className="section narrow">
-        <div className="stats reveal">
-          {[["2023", "começou a programar"], [certs.length, "certificados"], [techCount, "tecnologias"]].map(([n, label]) => (
-            <div key={label} className="card stat"><strong>{n}</strong><span>{label}</span></div>
-          ))}
+      <section className="narrow">
+        <header className="page-head">
+          <h1>Sobre mim</h1>
+        </header>
+        <div className="prose">
+          <p>
+            Sou Desenvolvedor Front-End e comecei a programar em 2023, com o
+            primeiro curso da RocketSeat, no meu último ano do ensino médio. Em
+            2024 cursei Engenharia de Software na Infnet e, em 2025, migrei para
+            Análise e Desenvolvimento de Sistemas na Facens.
+          </p>
+          <p>
+            Minha base é o front-end: HTML, CSS, JavaScript e React.js. Agora
+            estou ampliando meus estudos para o Full Stack, com TypeScript,
+            Node.js, Express, PostgreSQL, Prisma e Tailwind CSS.
+          </p>
         </div>
       </section>
 
-      <section className="section narrow">
-        <h2 className="subtitle reveal">Habilidades</h2>
-        {skills.map(([group, list]) => (
-          <div key={group} className="skill-group reveal">
-            <h3>{group}</h3>
-            <ul>
-              {list.map(([icon, name]) => (
-                <li key={name} className="chip">
-                  {icon} {name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
-
-      <section className="section narrow">
-        <h2 className="subtitle reveal">Formação</h2>
-        <div className="timeline">
-          {education.map(([title, place, date]) => (
-            <div key={title} className="card reveal">
-              <h3>{title}</h3>
-              <p>{place}</p>
-              <span className="accent">{date}</span>
+      <section className="narrow block">
+        <h2 className="section-title">Habilidades</h2>
+        <dl className="rows">
+          {skills.map(([group, list]) => (
+            <div key={group} className="row">
+              <dt>{group}</dt>
+              <dd className="skills">
+                {list.map(([icon, name]) => (
+                  <span key={name} className="skill">{icon} {name}</span>
+                ))}
+              </dd>
             </div>
           ))}
+        </dl>
+      </section>
+
+      <section className="narrow block">
+        <h2 className="section-title">Formação</h2>
+        <dl className="rows">
+          {education.map(([title, place, date]) => (
+            <div key={title} className="row">
+              <dt>{date}</dt>
+              <dd>
+                <strong>{title}</strong>
+                <span className="muted">{place}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="block">
+        <h2 className="section-title">Certificados <span className="count">{certs.length}</span></h2>
+        <div className="certs">
+          {certs.map(([file, title, org, year]) => (
+            <button key={file} className="cert" onClick={() => setSelected({ src: img(file), title })}>
+              <img src={img(file)} alt={`Certificado ${title}`} loading="lazy" />
+              <span className="cert-title">{title}</span>
+              <span className="muted small">{org} · {year}</span>
+            </button>
+          ))}
         </div>
       </section>
 
-      <section className="section">
-        <h2 className="subtitle reveal">Certificados</h2>
-        <div className="carousel reveal">
-          <button onClick={() => scroll(-1)} aria-label="Anterior">
-            ‹
-          </button>
-          <div className="track" ref={track}>
-            {certs.map(([file, title, org, year]) => (
-              <article
-                key={file}
-                className="card cert"
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelected({ src: img(file), title })}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && setSelected({ src: img(file), title })
-                }
-              >
-                <img
-                  src={img(file)}
-                  alt={`Certificado ${title}`}
-                  loading="lazy"
-                />
-                <h3>{title}</h3>
-                <p>
-                  {org} · <span className="accent">{year}</span>
-                </p>
-              </article>
-            ))}
-          </div>
-          <button onClick={() => scroll(1)} aria-label="Próximo">
-            ›
-          </button>
-        </div>
-      </section>
       {selected && (
-        <div className="lightbox" onClick={() => setSelected(null)}>
-          <button className="lightbox-close" aria-label="Fechar">
-            ✕
-          </button>
-          <img
-            src={selected.src}
-            alt={`Certificado ${selected.title}`}
-            onClick={(e) => e.stopPropagation()}
-          />
+        <div className="lightbox" onClick={() => setSelected(null)} role="dialog" aria-label={`Certificado ${selected.title}`}>
+          <button className="lightbox-close" aria-label="Fechar">✕</button>
+          <img src={selected.src} alt={`Certificado ${selected.title}`} onClick={(e) => e.stopPropagation()} />
         </div>
       )}
     </>

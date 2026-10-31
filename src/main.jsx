@@ -8,10 +8,10 @@ import Projetos from "./projetos/index.jsx";
 import Contato from "./contatos/index.jsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
   {
     element: <Layout />,
     children: [
+      { path: "/", element: <Home /> },
       { path: "/sobre", element: <Sobre /> },
       { path: "/projetos", element: <Projetos /> },
       { path: "/contato", element: <Contato /> },
