@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles.css";
+import { LangProvider } from "./i18n.jsx";
 import Layout from "./components/Layout.jsx";
 import Home from "./home/index.jsx";
 import Sobre from "./sobre/index.jsx";
@@ -19,4 +20,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
+createRoot(document.getElementById("root")).render(
+  <LangProvider>
+    <RouterProvider router={router} />
+  </LangProvider>
+);

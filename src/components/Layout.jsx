@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useLang } from "../i18n.jsx";
 
 const links = [
-  ["/", "Início"],
-  ["/sobre", "Sobre"],
-  ["/projetos", "Projetos"],
-  ["/contato", "Contato"],
+  ["/", "home"],
+  ["/sobre", "about"],
+  ["/projetos", "projects"],
+  ["/contato", "contact"],
 ];
 
 export default function Layout() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const { lang, setLang, t } = useLang();
 
   useEffect(() => {
     setOpen(false);
@@ -23,14 +25,21 @@ export default function Layout() {
       <header className="nav">
         <div className="container nav-inner">
           <Link to="/" className="brand">Nycolas Bertocco</Link>
-          <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Abrir menu" aria-expanded={open}>
+          <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label={t.nav.menu} aria-expanded={open}>
             {open ? <FaTimes /> : <FaBars />}
           </button>
           <nav className={open ? "open" : ""}>
-            {links.map(([to, label]) => (
-              <NavLink key={to} to={to} end>{label}</NavLink>
+            {links.map(([to, key]) => (
+              <NavLink key={to} to={to} end>{t.nav[key]}</NavLink>
             ))}
           </nav>
+          <div className="lang-switch" role="group" aria-label={t.nav.switchLang}>
+            {["pt", "en"].map((l) => (
+              <button key={l} className={lang === l ? "active" : ""} aria-pressed={lang === l} onClick={() => setLang(l)}>
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
