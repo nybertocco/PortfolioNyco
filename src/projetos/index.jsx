@@ -30,27 +30,42 @@ export default function Projetos() {
   const visible = projects.filter((p) => filter === "Todos" || category(p) === filter);
 
   return (
-    <section className="section">
-      <h1 className="title reveal">Meus projetos</h1>
-      <div className="filters reveal">
+    <section>
+      <header className="page-head">
+        <h1>Projetos</h1>
+        <p className="muted">Uma seleção do que construí enquanto estudo front-end e full stack.</p>
+      </header>
+
+      <div className="filters" role="tablist">
         {["Todos", "Full Stack", "Front-End"].map((f) => (
-          <button key={f} className={`chip${filter === f ? " active" : ""}`} onClick={() => setFilter(f)}>{f}</button>
+          <button key={f} role="tab" aria-selected={filter === f} className={`filter${filter === f ? " active" : ""}`} onClick={() => setFilter(f)}>
+            {f}
+          </button>
         ))}
       </div>
-      <div className="grid">
+
+      <div className="projects">
         {visible.map((p) => (
-          <article key={p.title} className={`card project in${p.featured && filter === "Todos" ? " featured" : ""}`}>
-            {p.featured && filter === "Todos" && <span className="badge">★ Destaque · Full Stack</span>}
-            <img src={imgs[`../assets/${p.img}.png`]} alt={`Projeto ${p.title}`} loading="lazy" />
-            <div className="body">
-              <h3>{p.title}</h3>
-              {p.tags.length > 0 && <ul>{p.tags.map((t) => <li key={t} className="chip small">{t}</li>)}</ul>}
-              <p>{p.desc}</p>
-              <div className="actions">
-                <a className="btn" href={p.url} target="_blank" rel="noopener noreferrer">{p.label || "Ver projeto"}</a>
-              </div>
+          <a
+            key={p.title}
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`project${p.featured && filter === "Todos" ? " featured" : ""}`}
+          >
+            <div className="project-img">
+              <img src={imgs[`../assets/${p.img}.png`]} alt={`Projeto ${p.title}`} loading="lazy" />
             </div>
-          </article>
+            <div className="project-body">
+              <div className="project-title">
+                <h3>{p.title}</h3>
+                {p.featured && filter === "Todos" && <span className="tag-featured">Destaque</span>}
+              </div>
+              <p>{p.desc}</p>
+              {p.tags.length > 0 && <p className="tags">{p.tags.join(" · ")}</p>}
+              <span className="link">{p.label || "Ver projeto"} →</span>
+            </div>
+          </a>
         ))}
       </div>
     </section>
